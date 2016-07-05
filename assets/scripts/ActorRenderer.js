@@ -46,7 +46,6 @@ cc.Class({
         this.updateTotalStake(playerInfo.gold);
         var photoIdx = playerInfo.photoIdx % 5;
         // this.spPlayerPhoto.spriteFrame = Game.instance.assetMng.playerPhotos[photoIdx];
-        // this.spPlayerPhoto.speriteFrame = Game.instance.assetMng.playerPhotos[photoIdx];
         // fx
         // this.animFX = this.animFX.getComponent('FXPlayer');
         // this.animFX.init();

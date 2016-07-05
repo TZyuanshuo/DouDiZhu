@@ -32,10 +32,10 @@ exports = {
         settled.to(bet).when(on("bet"));
 
         bet.entry(function () {
-            target.onBetState(true);
+            // target.onBetState(true);
         });
         bet.exit(function () {
-            target.onBetState(false);
+            // target.onBetState(false);
         });
 
         settled.entry(function () {

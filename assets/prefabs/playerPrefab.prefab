@@ -70,10 +70,13 @@
     "_components": [
       {
         "__id__": 62
+      },
+      {
+        "__id__": 63
       }
     ],
     "_prefab": {
-      "__id__": 63
+      "__id__": 64
     },
     "groupIndex": 0
   },
@@ -1936,6 +1939,7 @@
     "labelStakeOnTable": {
       "__id__": 10
     },
+    "spChips": [],
     "labelCardInfo": {
       "__id__": 51
     },
@@ -1946,6 +1950,18 @@
       "__id__": 58
     },
     "cardSpace": 0
+  },
+  {
+    "__type__": "5eb2fJzeUdNuo2v0KQKfSmh",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "renderer": {
+      "__id__": 1
+    }
   },
   {
     "__type__": "cc.PrefabInfo",

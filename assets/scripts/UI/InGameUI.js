@@ -15,10 +15,10 @@ cc.Class({
     // use this for initialization
     init:function(betDuration){
         this.panelSocial.active = false;
-        this.resultTxt.enable = false;
+        this.resultTxt.enabled = false;
         // this.betStateUI.active = false;
         this.gameStateUI.active = false;
-        this.btnStart.active = false;
+        this.btnStart.active = true;
         this.betDuration = betDuration;
         this.betTimer = 0;
         this.isBetCounting = false;
