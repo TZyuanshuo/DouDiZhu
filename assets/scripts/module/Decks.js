@@ -8,7 +8,7 @@ var Types = require('Types');
  */
 function Decks (numberOfDecks) {
     // 总共几副牌
-    this._numberOfDecks = numberOfDecks;
+    this._numberOfDecks = 1;
     // 还没发出去的牌
     this._cardIds = new Array(numberOfDecks * 52);
 

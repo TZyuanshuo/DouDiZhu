@@ -24,6 +24,7 @@ cc.Class({
             get: function () {
                 var minMax = Utils.getMinMaxPoint(this.cards);
                 return minMax.max;
+                // return this.cards.count;
             }
         },
 
@@ -76,12 +77,18 @@ cc.Class({
         this.cards.push(card);
         this.renderer.onDeal(card, true);
 
-        var cards = this.holeCard ? [this.holeCard].concat(this.cards) : this.cards;
-        if (Utils.isBust(cards)) {
-            this.state = ActorPlayingState.Bust;
-        }
+        // var cards = this.holeCard ? [this.holeCard].concat(this.cards) : this.cards;
+        var cards = this.cards;
+        
+        // if (Utils.isBust(cards)) {
+        //     this.state = ActorPlayingState.Bust;
+        // }
     },
-
+    
+    showCard: function(){
+      this.renderer.showCards();  
+    },
+    
     addHoleCard: function (card) {
         this.holeCard = card;
         this.renderer.onDeal(card, false);

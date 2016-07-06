@@ -53,22 +53,27 @@ var Game =  cc.Class({
     onEnterDealState: function () {
         // this.betUI.resetTossedChips();
         this.inGameUI.resetCountdown();
-        this.player.renderer.showStakeChips(this.player.stakeNum);
-        this.player.addCard(this.decks.draw());
+        // 下注的多少
+        // this.player.renderer.showStakeChips(this.player.stakeNum);
         
-        var holdCard = this.decks.draw();
-        this.dealer.addHoleCard(holdCard);
-        this.player.addCard(this.decks.draw());
-        this.dealer.addCard(this.decks.draw());
-        this.dealer.addHoleCard(holdCard);
-        this.player.addCard(this.decks.draw());
-        // this.player.addCard(this.decks.draw());
+        for (var i=0; i<17; ++i){
+            this.player.addCard(this.decks.draw());
+            // cc.log('牌的点数:'+this.decks.draw().point);
+        }
+        this.player.showCard();
+        // var holdCard = this.decks.draw();
+        // this.player2.addHoleCard(holdCard);
+        // // this.player.addCard(this.decks.draw());
+        // this.player2.addCard(this.decks.draw());
+        // this.player2.addHoleCard(holdCard);
+        // this.player2.addHoleCard(this.decks.draw());
         
-        this.player1.addHoleCard(holdCard);
-        this.player1.addCard(this.decks.draw());
+        // this.player1.addHoleCard(holdCard);
 
-        this.audioMng.playCard();
-        this.fsm.onDealed();
+        // this.player1.addCard(this.decks.draw());
+
+        // this.audioMng.playCard();
+        // this.fsm.onDealed();
     },
     
     // 显示出牌或不出牌按钮
@@ -80,7 +85,7 @@ var Game =  cc.Class({
 
     // 玩家出牌
     btnPlay: function(){
-         
+        //  this.hit();
     },
     // 玩家不出牌
     btnDoNot: function() {
@@ -117,6 +122,31 @@ var Game =  cc.Class({
         this.audioMng.playMusic();
     },
     
+    // 玩家要牌
+    hit: function () {
+        this.player.addCard(this.decks.draw());
+        // if (this.player.state === ActorPlayingState.Bust) {
+        //     // if every player end
+        //     this.fsm.onPlayerActed();
+        // }
+
+        this.audioMng.playCard();
+
+        //if (this.dealer.state === ActorPlayingState.Normal) {
+        //    if (this.dealer.wantHit()) {
+        //        this.dealer.addCard(this.decks.draw());
+        //    }
+        //    else {
+        //        this.dealer.stand();
+        //    }
+        //}
+        //
+        //if (this.dealer.state === ActorPlayingState.Bust) {
+        //    this.state = GamingState.End;
+        //}
+        this.audioMng.playButton();
+    },
+    
     createPlayers: function(){
       for(var i = 0;i < 3; ++i){
            var playerNode = cc.instantiate(this.playerPrefab);
@@ -136,6 +166,11 @@ var Game =  cc.Class({
           if (i === 1){
               this.player1 = playerNode.getComponent('Player');
               this.player1.init();
+          }
+          
+          if (i === 2){
+              this.player2 = playerNode.getComponent('Player');
+              this.player2.init();
           }
       }  
     },

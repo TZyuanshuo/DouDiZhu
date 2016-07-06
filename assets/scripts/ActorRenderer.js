@@ -22,6 +22,10 @@ cc.Class({
             default: [],
             type: cc.Sprite
         },
+        cardsArray: {
+            default: [],
+            type:cc.SpriteFrame
+        },
         labelCardInfo: cc.Label,
         spCardInfo: cc.Sprite,
         animFX: cc.Node,
@@ -50,7 +54,7 @@ cc.Class({
         // this.animFX = this.animFX.getComponent('FXPlayer');
         // this.animFX.init();
         // this.animFX.show(false);
-
+        
         this.cardInfo.active = false;
 
         // switch side
@@ -108,20 +112,66 @@ cc.Class({
     },
 
     onDeal: function (card, show) {
+       
+        // cc.log('牌point'+this.anchorCards.length);
+        this.cardsArray.push(card);
+        // cc.log('cardspoint的数量'+this.cardsArray.length);
+        this.cardsArray.sort(this.compare('point'));
+        
+        // newCard.init(card);
+        // newCard.reveal(show);
+        
+        // var startPos = cc.p(0, 0);
+        // var index = this.actor.cards.length - 1;
+        // cc.log('牌的多少'+index);
+        // var endPos = cc.p(30 * index, 0);
+        // newCard.node.setPosition(startPos);
+        // var endPosX = endPos.x;
+        // cc.log('移动距离'+endPosX);
+        // this._updatePointPos(endPosX);
+
+        // var moveAction = cc.moveTo(0.5, endPos);
+        // var callback = cc.callFunc(this._onDealEnd, this);
+        // newCard.node.runAction(cc.sequence(moveAction, callback));
+    },
+    
+   compare: function(propertyName) { 
+        return function (object1, object2) { 
+            var value1 = object1[propertyName]; 
+            var value2 = object2[propertyName]; 
+            if (value2 < value1) { 
+                return -1; 
+            } 
+            else if (value2 > value1) { 
+                return 1; 
+            } 
+            else { 
+                return 0; 
+            } 
+        } 
+    },
+    
+    showCards: function(){
+         
+        for(var i=0;i<this.cardsArray.length;i++){
         var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
         this.anchorCards.addChild(newCard.node);
-        newCard.init(card);
-        newCard.reveal(show);
-
+        newCard.init(this.cardsArray[i]);
+        newCard.reveal(true);
         var startPos = cc.p(0, 0);
         var index = this.actor.cards.length - 1;
-        var endPos = cc.p(this.cardSpace * index, 0);
+        cc.log('牌的多少'+index);
+        
+        var endPos = cc.p(30 * i, 0);
         newCard.node.setPosition(startPos);
-        this._updatePointPos(endPos.x);
+        var endPosX = endPos.x;
+        // cc.log('移动距离'+endPosX);
+        this._updatePointPos(endPosX);
 
         var moveAction = cc.moveTo(0.5, endPos);
         var callback = cc.callFunc(this._onDealEnd, this);
         newCard.node.runAction(cc.sequence(moveAction, callback));
+        }
     },
 
     _onDealEnd: function(target) {
@@ -149,7 +199,7 @@ cc.Class({
 
     updatePoint: function () {
         this.cardInfo.active = true;
-        this.labelCardInfo.string = this.actor.bestPoint;
+        this.labelCardInfo.string = this.actor.cards.length;
 
         switch (this.actor.hand) {
             case Types.Hand.BlackJack:
@@ -163,7 +213,7 @@ cc.Class({
     },
 
     _updatePointPos: function (xPos) {
-        // cc.log(this.name + ' card info pos: ' + xPos);
+        cc.log(this.name + ' card info pos: ' + xPos);
         this.cardInfo.setPosition(xPos + 50, 0);
     },
 
