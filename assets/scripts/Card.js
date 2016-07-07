@@ -7,6 +7,7 @@ cc.Class({
         suit: cc.Sprite,
         mainPic: cc.Sprite,
         cardBG: cc.Sprite,
+        tag: 0,
         // resources
         redTextColor: cc.Color.WHITE,
         blackTextColor: cc.Color.WHITE,

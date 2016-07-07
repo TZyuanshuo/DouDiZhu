@@ -421,6 +421,7 @@
     "cardBG": {
       "__id__": 12
     },
+    "tag": 0,
     "redTextColor": {
       "__type__": "cc.Color",
       "r": 222,
@@ -490,7 +491,8 @@
     },
     "_enabled": true,
     "upStationX": 0,
-    "upStationY": 0
+    "upStationY": 0,
+    "putArray": []
   },
   {
     "__type__": "cc.PrefabInfo",

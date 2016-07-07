@@ -2773,8 +2773,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -527,
-      "y": 146
+      "x": -536,
+      "y": 70
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2822,8 +2822,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 41,
-      "y": 118
+      "x": 51,
+      "y": 208
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2927,8 +2927,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 338,
-      "y": 157
+      "x": 417,
+      "y": 79
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2976,8 +2976,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 56,
-      "y": 122
+      "x": 142,
+      "y": 146
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3581,6 +3581,8 @@
     "labelStakeOnTable": null,
     "spChips": [],
     "cardsArray": [],
+    "player1CardsArray": [],
+    "player2CardsArray": [],
     "labelCardInfo": {
       "__id__": 88
     },
@@ -3637,7 +3639,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -287,
+      "x": -254,
       "y": 58
     },
     "_skewX": 0,

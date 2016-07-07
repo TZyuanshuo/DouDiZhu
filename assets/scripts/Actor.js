@@ -14,7 +14,7 @@ cc.Class({
         },
         // 暗牌，demo 暂存
         holeCard: {
-            default: null,
+            default: [],
             serializable: false,
             visible: false
         },
@@ -78,7 +78,7 @@ cc.Class({
         this.renderer.onDeal(card, true);
 
         // var cards = this.holeCard ? [this.holeCard].concat(this.cards) : this.cards;
-        var cards = this.cards;
+        // var cards = this.cards;
         
         // if (Utils.isBust(cards)) {
         //     this.state = ActorPlayingState.Bust;
@@ -90,12 +90,21 @@ cc.Class({
     },
     
     addHoleCard: function (card) {
-        this.holeCard = card;
-        this.renderer.onDeal(card, false);
+        this.holeCard.push(card);
+        this.renderer.onDeal1(card, false);
+    },
+    
+    addHoleCard2: function(card){
+        this.holeCard.push(card);
+        this.renderer.onDeal2(card,false);  
     },
 
     stand: function () {
         this.state = ActorPlayingState.Stand;
+    },
+
+    upDataPostion:function(){
+      this.renderer.upDataInfoPosition();  
     },
 
     revealHoldCard: function () {

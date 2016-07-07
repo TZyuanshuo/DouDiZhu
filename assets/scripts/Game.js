@@ -59,22 +59,14 @@ var Game =  cc.Class({
         
         for (var i=0; i<17; ++i){
             this.player.addCard(this.decks.draw());
+            this.player1.addHoleCard(this.decks.draw());
+            this.player2.addHoleCard2(this.decks.draw());
             // cc.log('牌的点数:'+this.decks.draw().point);
         }
         this.player.showCard();
-        // var holdCard = this.decks.draw();
-        // this.player2.addHoleCard(holdCard);
-        // // this.player.addCard(this.decks.draw());
-        // this.player2.addCard(this.decks.draw());
-        // this.player2.addHoleCard(holdCard);
-        // this.player2.addHoleCard(this.decks.draw());
-        
-        // this.player1.addHoleCard(holdCard);
-
-        // this.player1.addCard(this.decks.draw());
-
-        // this.audioMng.playCard();
-        // this.fsm.onDealed();
+        this.player1.showCard();
+        // this.player1.upDataPostion();
+        // this.player2.upDataPostion();
     },
     
     // 显示出牌或不出牌按钮
@@ -86,7 +78,7 @@ var Game =  cc.Class({
 
     // 玩家出牌
     btnPlay: function(){
-        //  this.hit();
+        
     },
     // 玩家不出牌
     btnDoNot: function() {
