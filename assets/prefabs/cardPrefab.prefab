@@ -67,10 +67,13 @@
       },
       {
         "__id__": 13
+      },
+      {
+        "__id__": 14
       }
     ],
     "_prefab": {
-      "__id__": 14
+      "__id__": 15
     },
     "groupIndex": 0
   },
@@ -477,6 +480,17 @@
         "__uuid__": "87b7307a-0c53-4cd3-bf65-ae58e229ce12"
       }
     ]
+  },
+  {
+    "__type__": "f7f725Yvq9AoYXrLnzo2uEY",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "upStationX": 0,
+    "upStationY": 0
   },
   {
     "__type__": "cc.PrefabInfo",

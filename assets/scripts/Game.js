@@ -46,6 +46,7 @@ var Game =  cc.Class({
         this.inGameUI.btnStart.active=false;
         this.fsm.toBet();
         this.fsm.toDeal();
+        this.onPlayersTurnState(true);
         this.audioMng.playButton();
     },
     
@@ -174,6 +175,8 @@ var Game =  cc.Class({
           }
       }  
     },
+    
+    
     
     quitToMenu: function(){
       cc.director.loadScene('menu');

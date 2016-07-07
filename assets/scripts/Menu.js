@@ -14,6 +14,10 @@ cc.Class({
     playGame: function () {
         cc.director.loadScene('table');
     },
+    
+    jumpToTable: function(){
+      cc.director.loadScene('table');  
+    },
 
     // called every frame
     update: function (dt) {
