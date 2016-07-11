@@ -89,6 +89,14 @@ cc.Class({
       this.renderer.showCards();  
     },
     
+    showCards1: function(){
+      this.renderer.showCards1();  
+    },
+    
+    showCards2: function(){
+        this.renderer.showCards2();
+    },
+    
     addHoleCard: function (card) {
         this.holeCard.push(card);
         this.renderer.onDeal1(card, false);
@@ -96,7 +104,7 @@ cc.Class({
     
     addHoleCard2: function(card){
         this.holeCard.push(card);
-        this.renderer.onDeal2(card,false);  
+        this.renderer.onDeal2(card,false);
     },
 
     stand: function () {
@@ -114,6 +122,10 @@ cc.Class({
             this.renderer.onRevealHoldCard();
         }
     },
+    
+    putCard:function(){
+      this.renderer.putCard();
+    },
 
     // revealNormalCard: function() {
     //     this.onRevealNormalCard();
@@ -122,7 +134,11 @@ cc.Class({
     report: function () {
         this.state = ActorPlayingState.Report;
     },
-
+    
+    willPutCards: function(card){
+        this.renderer.addPutCard(card);
+    },
+    
     reset: function () {
         this.cards = [];
         this.holeCard = null;

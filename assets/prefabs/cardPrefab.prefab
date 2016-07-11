@@ -492,7 +492,7 @@
     "_enabled": true,
     "upStationX": 0,
     "upStationY": 0,
-    "putArray": []
+    "cardsArray": []
   },
   {
     "__type__": "cc.PrefabInfo",

@@ -1,4 +1,5 @@
 var actorRenderer = require('ActorRenderer');
+var Decks = require('Decks');
 cc.Class({
     extends: cc.Component,
 
@@ -8,7 +9,8 @@ cc.Class({
         cardsArray: {
             default: [],
             type:cc.SpriteFrame
-        }
+        },
+        
     },
 
     // use this for initialization
@@ -18,11 +20,18 @@ cc.Class({
         if (audioMng) {
             audioMng = audioMng.getComponent('AudioMng');
         }
+        var actor =cc.find('Canvas/playerLayer/anchorDealer/Dealer');
+        if(actor){
+            actor = actor.getComponent('ActorRenderer');
+        }
+        
+        var game=cc.find('Game');
+            game = game.getComponent('Game');
         var num = 0;
         var spawn = cc.sequence(cc.moveBy(0.5, 0, 30));
         var spawnDown = cc.sequence(cc.moveBy(0.5, 0, -30));
-        var actionUp = cc.speed(spawn,4);
-        var actionDown = cc.speed(spawnDown, 4);
+        var actionUp = cc.speed(spawn,5);
+        var actionDown = cc.speed(spawnDown, 5);
         function onTouchDown (event){
             
             // cc.log('牌的id'+this.getComponent('Card').point.string);
@@ -31,7 +40,12 @@ cc.Class({
             this.stopAllActions();
             if(audioMng) audioMng.playButton();
             if(num%2===0){
+                game.addCards(newCard);
                 this.runAction(actionUp);
+                // actor.addPutCard(newCard);
+                // renderer.addPutCard(newCard);
+                // this.cardsArray.push(newCard);
+                // cc.log('添加后数组的长度'+this.cardsArray.length);
                 // this.cardsArray.push(newCard);
                 // cc.log('添加后数组的长度'+this.putArray.length);
             }else{
@@ -49,7 +63,11 @@ cc.Class({
         }
         this.node.on('touchstart', onTouchDown, this.node);
     },
-
+    
+    // addCards: function (card){
+    //     this.cardsArray.push(card);
+    //     cc.log('添加后数组的长度'+this.cardsArray.length);
+    // }
     
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
