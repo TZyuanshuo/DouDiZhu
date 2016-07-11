@@ -32,6 +32,7 @@ cc.Class({
         var spawnDown = cc.sequence(cc.moveBy(0.5, 0, -30));
         var actionUp = cc.speed(spawn,5);
         var actionDown = cc.speed(spawnDown, 5);
+        
         function onTouchDown (event){
             
             // cc.log('牌的id'+this.getComponent('Card').point.string);
@@ -49,6 +50,7 @@ cc.Class({
                 // this.cardsArray.push(newCard);
                 // cc.log('添加后数组的长度'+this.putArray.length);
             }else{
+                game.release(newCard);
                 // for(var i=0;i<this.putArray.length;i++){
                 //     var card = this.putArray[i];
                 //     if(newCard.point.string === card.point.string && newCard.suit === card.suit){

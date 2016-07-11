@@ -1911,6 +1911,7 @@
     "cardInfo": {
       "__id__": 48
     },
+    "putCardNode": null,
     "cardPrefab": {
       "__uuid__": "d54de649-dc3a-4f6d-a5b1-92c8e23fd6a0"
     },
@@ -1936,6 +1937,9 @@
       "__id__": 10
     },
     "spChips": [],
+    "newCardsArray": [],
+    "player1CardsArray": [],
+    "player2CardsArray": [],
     "labelCardInfo": {
       "__id__": 51
     },

@@ -1369,8 +1369,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 79,
-      "height": 50
+      "width": 40,
+      "height": 40
     },
     "_children": [],
     "_rotationX": 0,
@@ -3567,6 +3567,7 @@
     "cardInfo": {
       "__id__": 85
     },
+    "putCardNode": null,
     "cardPrefab": {
       "__uuid__": "d54de649-dc3a-4f6d-a5b1-92c8e23fd6a0"
     },
@@ -3580,6 +3581,7 @@
     "callCounter": null,
     "labelStakeOnTable": null,
     "spChips": [],
+    "newCardsArray": [],
     "player1CardsArray": [],
     "player2CardsArray": [],
     "labelCardInfo": {

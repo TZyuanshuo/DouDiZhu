@@ -10,6 +10,7 @@ cc.Class({
         playerInfo: cc.Node,
         stakeOnTable: cc.Node,
         cardInfo: cc.Node,
+        putCardNode: cc.Node,
         cardPrefab: cc.Prefab,
         anchorCards: cc.Node,
         spPlayerName: cc.Sprite,
@@ -26,6 +27,11 @@ cc.Class({
             default: [],
             serializable: false,
             visible: false
+        },
+        newCardsArray:{
+            default:[],
+            // serializable:false,
+            type:cc.SpriteFrame
         },
         player1CardsArray:{
           default: [],
@@ -127,6 +133,7 @@ cc.Class({
 
     onDeal: function (card, show) {
         this.cardsArray.push(card);
+        // cc.log('card.suit:'+card.suit);
         this.cardsArray.sort(this.compare('point'));
     },
     
@@ -162,28 +169,31 @@ cc.Class({
     },
     
     showCards: function(){
-         
+        this.labelCardInfo.string = 0;
         for(var i=0;i<this.cardsArray.length;i++){
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
             this.anchorCards.addChild(newCard.node);
-            newCard.init(this.cardsArray[i]);
-            newCard.tag=i;
-            // cc.log('tag'+newCard.tag);
+            newCard.init(this.cardsArray[i],i);
+            // newCard = this.cardsArray[i];
+            // newCard.tag=i;
+            // cc.log('card.tag'+newCard.tag.string+'card.ponit'+newCard.point.string);
             newCard.reveal(true);
+            // this.newCardsArray.push(newCard);
             var startPos = cc.p(0, 0);
-            var index = this.actor.cards.length - 1;
-            cc.log('牌的多少'+index);
-            this.labelCardInfo.string = index+1;
+            var index = this.cardsArray.length;
+            //  this.cardInfo.active=true;
+            this.labelCardInfo.string = index;
             var endPos = cc.p(30 * i, 0);
             newCard.node.setPosition(startPos);
             var endPosX = endPos.x;
             // cc.log('移动距离'+endPosX);
             this._updatePointPos(endPosX);
-
+            
             var moveAction = cc.moveTo(0.5, endPos);
             var callback = cc.callFunc(this._onDealEnd, this);
             newCard.node.runAction(cc.sequence(moveAction, callback));
         }
+        
     },
     
     showCards1: function(){
@@ -209,6 +219,7 @@ cc.Class({
     },
     
     showCards2: function(){
+        
         for(var i=0;i<this.player2CardsArray.length;i++){
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
             this.anchorCards.addChild(newCard.node);
@@ -217,6 +228,7 @@ cc.Class({
             var startPos = cc.p(0,0);
             var index = this.actor.holeCard.length;
             cc.log('player2牌的多少'+index);
+            
             this.labelCardInfo.string = index;
             var endPos = cc.p(3*i,0);
             newCard.node.setPosition(startPos);
@@ -303,31 +315,73 @@ cc.Class({
     
     addPutCard: function(card){
         this.putCardsArray.push(card);
-        cc.log('添加的打出的牌'+this.putCardsArray.length+'point'+card.point.string+'ID'+card.tag);
+        cc.log('添加的打出的牌'+'point:'+card.point.string+'    tag:'+card.tag.string);
         // cc.log('数组的大小'+this.putCardsArray.lenth);
     },
     
-    putCard:function(){
+    release: function(card){
+        for(var i=0;i<this.putCardsArray.length;i++){
+            if(card.tag===this.putCardsArray[i].tag){
+                // cc.log('成功放回一张');
+                this.putCardsArray.splice(i,1);
+            }
+        }
+    },
+    
+    putCards:function(){
         for(var i=0;i<this.putCardsArray.length;i++){
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
             newCard = this.putCardsArray[i];
             // cc.log('遍历'+card);
-            cc.log('拍的IUD'+newCard.point.string+'tag'+newCard.tag);
-            cc.log('this.cardsArray'+this.cardsArray.length);
+            cc.log('牌的point'+newCard.point.string+'tag'+newCard.tag.string);
+            // cc.log('this.cardsArray'+this.cardsArray.length);
             for(var j=0;j<this.cardsArray.length;j++){
                 var card = cc.instantiate(this.cardPrefab).getComponent('Card');
-                // cc.log('cardsArray:'+this.cardsArray[i]);
-                card = this.cardsArray[j];
-                cc.log('遍历删除'+card.point.string);
-                if(newCard.tag === card.tag){
-                    cc.log('删除一张牌'+newCard.tag);
-                    this.cardsArray.splice(i,1);
+                card.init(this.cardsArray[j],j);
+                // card = this.cardsArray[j];
+                // cc.log('遍历删除'+card.tag.string);
+                if(newCard.tag.string === card.tag.string ){
+                    cc.log('删除掉的另一张牌tag:'+newCard.tag.string+'point'+newCard.point.string);
+                    cc.log('删除一张牌tag:'+card.tag.string+'point:'+card.point.string);
+                    this.cardsArray.splice(j,1);
                     this.cardsArray.sort(this.compare('point'));
                 }
             }
         }
-        this.showCards();
         
+         this.anchorCards.removeAllChildren();
+         this._resetChips();
+         this.showCards();
+         this.player0ShowPutCard();
+        
+    },
+    
+    player0ShowPutCard:function(){
+        cc.log('长度'+this.putCardsArray.length);
+        for(var i=0;i>this.putCardsArray.length;i++){
+            var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
+            this.anchorCards.addChild(newCard.node);
+            newCard.init(this.putCardsArray[i],i);
+            // newCard = this.cardsArray[i];
+            // newCard.tag=i;
+            // cc.log('card.tag'+newCard.tag.string+'card.ponit'+newCard.point.string);
+            newCard.reveal(true);
+            // this.newCardsArray.push(newCard);
+            var startPos = cc.p(100,300);
+            var index = this.putCardsArray.length;
+            //  this.cardInfo.active=true;
+            this.labelCardInfo.string = index;
+            var endPos = cc.p(30 * i, 0);
+            newCard.node.setPosition(startPos);
+            var endPosX = endPos.x;
+            // cc.log('移动距离'+endPosX);
+            this._updatePointPos(endPosX);
+            
+            var moveAction = cc.moveTo(0.5, endPos);
+            var callback = cc.callFunc(this._onDealEnd, this);
+            newCard.node.runAction(cc.sequence(moveAction, callback));
+        }
+        this.putCardsArray = [];
     },
     
     updateState: function () {

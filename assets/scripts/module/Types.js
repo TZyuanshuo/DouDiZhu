@@ -25,6 +25,10 @@ function Card (point, suit) {
             value: suit,
             writable: false
         },
+        // tag:{
+        //   value:tag,
+        //   writable: false
+        // },
         /**
          * @property {Number} id - 可能的值为 0 到 51
          */
@@ -43,6 +47,11 @@ function Card (point, suit) {
                 return Suit[this.suit];
             }
         },
+        // tagName:{
+        //   get: function(){
+        //       return this.tag;
+        //   }  
+        // },
         isBlackSuit: {
             get: function () {
                 return this.suit === Suit.Spade || this.suit === Suit.Club;
@@ -60,7 +69,7 @@ Card.prototype.toString = function () {
     return this.suitName + ' ' + this.pointName;
 };
 
-// 存放 52 张扑克的实例
+// 存放 54 张扑克的实例
 var cards = new Array(54);
 
 /**
@@ -75,14 +84,16 @@ Card.fromId = function (id) {
 (function createCards () {
     for (var s = 1; s <= 4; s++) {
         for (var p = 1; p <= 13; p++) {
-            var card = new Card(p, s);
-            cards[card.id] = card;
+            // for(var t=0;t<19;t++){
+                var card = new Card(p, s);
+                cards[card.id] = card;
+            // }
         }
     }
      card = new Card(14, 4);
-       cards[card.id] = card;
-    card = new Card(15, 4);
-       cards[card.id] = card;
+        cards[card.id] = card;
+        card = new Card(15, 4);
+        cards[card.id] = card;
 })();
 
 // 手中牌的状态

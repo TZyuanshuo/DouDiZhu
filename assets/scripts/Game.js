@@ -99,6 +99,9 @@ var Game =  cc.Class({
         this.player1 = null;
         this.createPlayers();
         
+        this.dealer = this.dealer.getComponent('Dealer');
+        this.dealer.init();
+        
         // shortcut to ui element
         this.info = this.inGameUI.resultTxt;
         this.totalChips = this.inGameUI.labelTotalChips;
@@ -171,6 +174,15 @@ var Game =  cc.Class({
         // cc.log('点击了要出的牌');
         this.player.willPutCards(card);
     },
+    
+    // 放回要出的牌
+    release:function(card){
+      this.player.release(card);  
+    },
+    
+    // showPutCard:function(){
+    //     this.dealer.showPutCard();
+    // },
     
     quitToMenu: function(){
       cc.director.loadScene('menu');

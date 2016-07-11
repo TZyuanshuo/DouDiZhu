@@ -7,7 +7,7 @@ cc.Class({
         suit: cc.Sprite,
         mainPic: cc.Sprite,
         cardBG: cc.Sprite,
-        tag: 0,
+        tag:cc.Label,
         // resources
         redTextColor: cc.Color.WHITE,
         blackTextColor: cc.Color.WHITE,
@@ -28,7 +28,7 @@ cc.Class({
     },
 
     // use this for initialization
-    init: function (card) {
+    init: function (card,num) {
         var isFaceCard = card.point > 8 && card.point < 12;
         var isJoker = card.point > 13;
         if (isFaceCard) {
@@ -54,6 +54,8 @@ cc.Class({
         else{
             this.suit.spriteFrame = this.texSuitSmall[card.suit - 1];
         }
+        
+        this.tag.string = num;
     },
 
     reveal: function (isFaceUp) {

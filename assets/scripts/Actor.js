@@ -86,7 +86,7 @@ cc.Class({
     },
     
     showCard: function(){
-      this.renderer.showCards();  
+      this.renderer.showCards();
     },
     
     showCards1: function(){
@@ -124,11 +124,15 @@ cc.Class({
     },
     
     putCard:function(){
-      this.renderer.putCard();
+      this.renderer.putCards();
     },
 
     // revealNormalCard: function() {
     //     this.onRevealNormalCard();
+    // },
+    
+    // showPutCard:function(){
+    //   this.renderer.showPutCard();
     // },
 
     report: function () {
@@ -137,6 +141,10 @@ cc.Class({
     
     willPutCards: function(card){
         this.renderer.addPutCard(card);
+    },
+    
+    release: function(card){
+        this.renderer.release(card);
     },
     
     reset: function () {
