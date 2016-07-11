@@ -10,7 +10,7 @@ function Decks (numberOfDecks) {
     // 总共几副牌
     this._numberOfDecks = 1;
     // 还没发出去的牌
-    this._cardIds = new Array(numberOfDecks * 52);
+    this._cardIds = new Array(numberOfDecks * 54);
 
     this.reset();
 }
@@ -20,11 +20,11 @@ function Decks (numberOfDecks) {
  * @method reset
  */
 Decks.prototype.reset = function () {
-    this._cardIds.length = this._numberOfDecks * 52;
+    this._cardIds.length = this._numberOfDecks * 54;
     var index = 0;
     var fromId = Types.Card.fromId;
     for (var i = 0; i < this._numberOfDecks; ++i) {
-        for (var cardId = 0; cardId < 52; ++cardId) {
+        for (var cardId = 0; cardId < 54; ++cardId) {
             this._cardIds[index] = fromId(cardId);
             ++index;
         }

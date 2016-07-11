@@ -5,7 +5,7 @@ var Suit = cc.Enum({
     Diamond: 4, // 方块(红)
 });
 
-var A2_10JQK = 'NAN,A,2,3,4,5,6,7,8,9,10,J,Q,K'.split(',');
+var A2_10JQK = 'NAN,3,4,5,6,7,8,9,10,J,Q,K,A,2,KK,KKK'.split(',');
 
 /**
  * 扑克牌类，只用来表示牌的基本属性，不包含游戏逻辑，所有属性只读，
@@ -61,7 +61,7 @@ Card.prototype.toString = function () {
 };
 
 // 存放 52 张扑克的实例
-var cards = new Array(52);
+var cards = new Array(54);
 
 /**
  * 返回指定 id 的实例
@@ -79,6 +79,10 @@ Card.fromId = function (id) {
             cards[card.id] = card;
         }
     }
+     card = new Card(14, 4);
+       cards[card.id] = card;
+    card = new Card(15, 4);
+       cards[card.id] = card;
 })();
 
 // 手中牌的状态

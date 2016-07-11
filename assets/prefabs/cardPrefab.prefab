@@ -100,8 +100,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 64,
-      "height": 97
+      "width": 57,
+      "height": 89
     },
     "_children": [],
     "_rotationX": 0,
@@ -144,7 +144,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "66584e0f-188e-4294-a419-9b09be4017bf"
+      "__uuid__": "85aaba67-d759-4d08-9f4e-ab1cc8dcb9f3"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -160,7 +160,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": {
-      "__uuid__": "e30096a6-8d54-4406-8f2c-b2b2f94367f9"
+      "__uuid__": "d3a6afd7-5f1b-473e-b55e-fd3dc3ceaa78"
     }
   },
   {
@@ -174,9 +174,9 @@
     "isAlignOnce": false,
     "_alignFlags": 36,
     "_left": 0,
-    "_right": 12,
+    "_right": 15.5,
     "_top": 0,
-    "_bottom": 11,
+    "_bottom": 15,
     "_isAbsLeft": true,
     "_isAbsRight": true,
     "_isAbsTop": true,
@@ -258,7 +258,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "87b7307a-0c53-4cd3-bf65-ae58e229ce12"
+      "__uuid__": "e4e9f112-0365-4e1d-890c-657421b6bb0d"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -274,7 +274,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": {
-      "__uuid__": "e30096a6-8d54-4406-8f2c-b2b2f94367f9"
+      "__uuid__": "d3a6afd7-5f1b-473e-b55e-fd3dc3ceaa78"
     }
   },
   {
@@ -382,7 +382,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "dca9dc9b-d36c-42e8-a923-5e61da18cd3e"
+      "__uuid__": "71b7662e-8b1b-4e87-bcf3-3d55b67c5867"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -398,7 +398,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": {
-      "__uuid__": "e30096a6-8d54-4406-8f2c-b2b2f94367f9"
+      "__uuid__": "d3a6afd7-5f1b-473e-b55e-fd3dc3ceaa78"
     }
   },
   {
@@ -437,48 +437,54 @@
       "a": 255
     },
     "texFrontBG": {
-      "__uuid__": "dca9dc9b-d36c-42e8-a923-5e61da18cd3e"
+      "__uuid__": "71b7662e-8b1b-4e87-bcf3-3d55b67c5867"
     },
     "texBackBG": {
-      "__uuid__": "47615c83-d4a4-4a91-ac2b-0b75eba9fa5d"
+      "__uuid__": "3d212d7d-7d31-4456-9193-ac349ed2bf5d"
     },
     "texFaces": [
       {
-        "__uuid__": "b654d7b8-2718-49bb-986b-7eaa3b36acd3"
+        "__uuid__": "73d7681f-2123-404a-810c-132cda80d737"
       },
       {
-        "__uuid__": "e3dbf38e-7fb7-40e7-a831-94ec7a20c7c5"
+        "__uuid__": "0c6dfb3d-87cc-4c04-8f8a-85cecd150244"
       },
       {
-        "__uuid__": "66584e0f-188e-4294-a419-9b09be4017bf"
+        "__uuid__": "4b324bca-8e36-46ed-be8f-df00add13c6d"
+      },
+      {
+        "__uuid__": "26a0a408-9cb3-4717-8417-7fd6c724923b"
+      },
+      {
+        "__uuid__": "85aaba67-d759-4d08-9f4e-ab1cc8dcb9f3"
       }
     ],
     "texSuitBig": [
       {
-        "__uuid__": "23f3db07-2796-4d52-ac35-5c5b31d6f9a7"
+        "__uuid__": "9e01b59c-2726-461e-9fb5-07b00f99549e"
       },
       {
-        "__uuid__": "b64a76bd-f516-4cd2-a46d-bb1153c03d55"
+        "__uuid__": "a45c39d3-87fa-4c02-893b-598b36be2879"
       },
       {
-        "__uuid__": "8a63901d-69c0-4db8-8991-3ecbca934f5a"
+        "__uuid__": "0d644dbc-f11f-47b7-8a7c-7e806a93db6e"
       },
       {
-        "__uuid__": "21c69c2d-54ca-463a-8a99-20b87d526558"
+        "__uuid__": "9a968917-100f-4a97-b7d5-ce99fd8e4055"
       }
     ],
     "texSuitSmall": [
       {
-        "__uuid__": "21a7d73b-61e8-4374-93d6-e8f9e0c51305"
+        "__uuid__": "4bf1352f-2fb2-4a45-a33d-0f320e123254"
       },
       {
-        "__uuid__": "77467d85-91cc-4903-84f1-6f0346410917"
+        "__uuid__": "2d3da357-e574-42dc-aa51-3b2989f40a73"
       },
       {
-        "__uuid__": "a28ac721-8d14-4120-a9c3-edc13667e072"
+        "__uuid__": "9d8cc699-710a-4ba4-be25-cb3edbb3c95e"
       },
       {
-        "__uuid__": "87b7307a-0c53-4cd3-bf65-ae58e229ce12"
+        "__uuid__": "e4e9f112-0365-4e1d-890c-657421b6bb0d"
       }
     ]
   },

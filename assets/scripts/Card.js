@@ -29,10 +29,10 @@ cc.Class({
 
     // use this for initialization
     init: function (card) {
-        var isFaceCard = card.point > 10;
-
+        var isFaceCard = card.point > 8 && card.point < 12;
+        var isJoker = card.point > 13;
         if (isFaceCard) {
-            this.mainPic.spriteFrame = this.texFaces[card.point - 10 - 1];
+            this.mainPic.spriteFrame = this.texFaces[card.point - 8 - 1];
         }
         else {
             this.mainPic.spriteFrame = this.texSuitBig[card.suit - 1];
@@ -47,8 +47,13 @@ cc.Class({
         else {
             this.point.node.color = this.blackTextColor;
         }
-
-        this.suit.spriteFrame = this.texSuitSmall[card.suit - 1];
+        if(isJoker){
+           this.suit.spriteFrame = null;
+           this.point.string = null;
+       }
+        else{
+            this.suit.spriteFrame = this.texSuitSmall[card.suit - 1];
+        }
     },
 
     reveal: function (isFaceUp) {
