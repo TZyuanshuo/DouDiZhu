@@ -79,9 +79,17 @@ var Game =  cc.Class({
     btnPlay: function(){
         this.player.putCard();
     },
+    
     // 玩家不出牌
     btnDoNot: function() {
         
+    },
+    
+    // 机器人 手机超人 出牌
+    btnPlay2: function(arr){
+        // this.player2.putCard();
+        cc.log('手机超人要出牌了'+arr.length);
+        this.player2.putCard2(arr);
     },
 
     // use this for initialization
@@ -171,13 +179,12 @@ var Game =  cc.Class({
     },
     
     addCards:function(card){
-        // cc.log('点击了要出的牌');
         this.player.willPutCards(card);
     },
     
     // 放回要出的牌
     release:function(card){
-      this.player.release(card);  
+      this.player.release(card);
     },
     
     // showPutCard:function(){

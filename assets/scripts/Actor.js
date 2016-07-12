@@ -126,6 +126,10 @@ cc.Class({
     putCard:function(){
       this.renderer.putCards();
     },
+    
+    putCard2: function(arr){
+        this.renderer.player2ShowPutCard(arr);
+    },
 
     // revealNormalCard: function() {
     //     this.onRevealNormalCard();

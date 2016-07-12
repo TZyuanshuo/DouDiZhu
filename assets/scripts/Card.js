@@ -8,6 +8,7 @@ cc.Class({
         mainPic: cc.Sprite,
         cardBG: cc.Sprite,
         tag:cc.Label,
+        suitNum:cc.Label,
         // resources
         redTextColor: cc.Color.WHITE,
         blackTextColor: cc.Color.WHITE,
@@ -56,6 +57,7 @@ cc.Class({
         }
         
         this.tag.string = num;
+        this.suitNum.string = card.suit;
     },
 
     reveal: function (isFaceUp) {

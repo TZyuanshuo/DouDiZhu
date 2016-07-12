@@ -43,22 +43,8 @@ cc.Class({
             if(num%2===0){
                 game.addCards(newCard);
                 this.runAction(actionUp);
-                // actor.addPutCard(newCard);
-                // renderer.addPutCard(newCard);
-                // this.cardsArray.push(newCard);
-                // cc.log('添加后数组的长度'+this.cardsArray.length);
-                // this.cardsArray.push(newCard);
-                // cc.log('添加后数组的长度'+this.putArray.length);
             }else{
                 game.release(newCard);
-                // for(var i=0;i<this.putArray.length;i++){
-                //     var card = this.putArray[i];
-                //     if(newCard.point.string === card.point.string && newCard.suit === card.suit){
-                //         this.putArray.splice(i,1);
-                //         cc.log('删除后数组的长度'+this.putArray.length);
-                //     }
-                    
-                // }
                 this.runAction(actionDown);
             }
             num++;
