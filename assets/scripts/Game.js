@@ -102,7 +102,7 @@ var Game =  cc.Class({
         
         this.dealer = this.dealer.getComponent('Dealer');
         this.dealer.init();
-        
+    
         this.player = null;
         this.player1 = null;
         this.createPlayers();
@@ -193,6 +193,17 @@ var Game =  cc.Class({
     
     quitToMenu: function(){
       cc.director.loadScene('menu');
+    },
+    
+    // text显示
+    showText: function(string){
+        this.info.enabled=true;
+        this.info.string=string;
+        this.inGameUI.btnPlayDisabled();
+    },
+    
+    notShowText: function(){
+      this.info.enabled=false; 
     },
 
     // called every frame, uncomment this function to activate update callback

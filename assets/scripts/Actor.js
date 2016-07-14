@@ -128,7 +128,7 @@ cc.Class({
     },
     
     putCard2: function(arr){
-        this.renderer.player2ShowPutCard(arr);
+        this.renderer.putCards2(arr);
     },
 
     // revealNormalCard: function() {

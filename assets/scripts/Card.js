@@ -9,6 +9,7 @@ cc.Class({
         cardBG: cc.Sprite,
         tag:cc.Label,
         suitNum:cc.Label,
+        val:cc.Label,
         // resources
         redTextColor: cc.Color.WHITE,
         blackTextColor: cc.Color.WHITE,
@@ -58,6 +59,12 @@ cc.Class({
         
         this.tag.string = num;
         this.suitNum.string = card.suit;
+        // if(card.point>=1 && card.point<=2 || card.point===k || card.point===KK ){
+        //     this.val=card.point+13;
+        // }else{
+        //     this.val=card.point;
+        // }
+        this.val.string = card.point+2;
     },
 
     reveal: function (isFaceUp) {

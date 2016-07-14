@@ -104,7 +104,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 97
+        "__id__": 99
       }
     ],
     "_prefab": null,
@@ -460,7 +460,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 96
+        "__id__": 98
       }
     ],
     "_prefab": null,
@@ -526,7 +526,7 @@
         "__id__": 17
       },
       {
-        "__id__": 95
+        "__id__": 97
       }
     ],
     "_prefab": null,
@@ -851,6 +851,12 @@
     },
     "gameStateUI": {
       "__id__": 39
+    },
+    "btnPlay": {
+      "__id__": 40
+    },
+    "btnDoNot": {
+      "__id__": 48
     },
     "resultTxt": {
       "__id__": 56
@@ -1606,9 +1612,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 236,
+      "g": 217,
+      "b": 217,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -1831,16 +1837,16 @@
     "_N$interactable": true,
     "_N$normalColor": {
       "__type__": "cc.Color",
-      "r": 214,
-      "g": 214,
-      "b": 214,
+      "r": 236,
+      "g": 217,
+      "b": 217,
       "a": 255
     },
     "_N$disabledColor": {
       "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
+      "r": 105,
+      "g": 95,
+      "b": 95,
       "a": 255
     },
     "_N$normalSprite": null,
@@ -1880,7 +1886,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
+      "width": 200,
       "height": 95
     },
     "_children": [
@@ -2121,8 +2127,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -2154,8 +2160,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 162.29,
-      "height": 40
+      "width": 101.43,
+      "height": 25
     },
     "_children": [],
     "_rotationX": 0,
@@ -2643,10 +2649,10 @@
     },
     "_children": [
       {
-        "__id__": 93
+        "__id__": 95
       },
       {
-        "__id__": 94
+        "__id__": 96
       }
     ],
     "_rotationX": 0,
@@ -3129,6 +3135,9 @@
       },
       {
         "__id__": 85
+      },
+      {
+        "__id__": 91
       }
     ],
     "_rotationX": 0,
@@ -3151,10 +3160,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 91
+        "__id__": 93
       },
       {
-        "__id__": 92
+        "__id__": 94
       }
     ],
     "_prefab": null,
@@ -3555,6 +3564,68 @@
     "_atlas": null
   },
   {
+    "__type__": "cc.Node",
+    "_name": "CardType",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 79
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_reorderChildDirty": false,
+    "_id": "500f38RluhB370RJbbWl1kL",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 92
+      }
+    ],
+    "_prefab": null,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "3c14dTw+cZBNJAZw5Jtzy6U",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 91
+    },
+    "_enabled": true
+  },
+  {
     "__type__": "1a792KO87NBg7vCCIp1jq+j",
     "_name": "",
     "_objFlags": 0,
@@ -3581,9 +3652,11 @@
     "callCounter": null,
     "labelStakeOnTable": null,
     "spChips": [],
-    "newCardsArray": [],
     "player1CardsArray": [],
     "player2CardsArray": [],
+    "cardType": {
+      "__id__": 91
+    },
     "labelCardInfo": {
       "__id__": 88
     },
