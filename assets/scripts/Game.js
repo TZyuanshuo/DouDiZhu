@@ -57,7 +57,7 @@ var Game =  cc.Class({
         // 下注的多少
         // this.player.renderer.showStakeChips(this.player.stakeNum);
         
-        for (var i=0; i<1; ++i){
+        for (var i=0; i<17; ++i){
             this.player.addCard(this.decks.draw());
             this.player1.addHoleCard(this.decks.draw());
             this.player2.addHoleCard2(this.decks.draw());
