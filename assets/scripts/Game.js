@@ -86,10 +86,10 @@ var Game =  cc.Class({
     },
     
     // 机器人 手机超人 出牌
-    btnPlay2: function(arr){
+    btnPlay2: function(result){
         // this.player2.putCard();
-        cc.log('手机超人要出牌了'+arr.length);
-        this.player2.putCard2(arr);
+        // cc.log('手机超人要出牌了'+arr.length);
+        this.player2.putCard2(result);
     },
 
     // use this for initialization
@@ -126,29 +126,29 @@ var Game =  cc.Class({
     },
     
     // 玩家要牌
-    hit: function () {
-        this.player.addCard(this.decks.draw());
-        // if (this.player.state === ActorPlayingState.Bust) {
-        //     // if every player end
-        //     this.fsm.onPlayerActed();
-        // }
+    // hit: function () {
+    //     this.player.addCard(this.decks.draw());
+    //     // if (this.player.state === ActorPlayingState.Bust) {
+    //     //     // if every player end
+    //     //     this.fsm.onPlayerActed();
+    //     // }
 
-        this.audioMng.playCard();
+    //     this.audioMng.playCard();
 
-        //if (this.dealer.state === ActorPlayingState.Normal) {
-        //    if (this.dealer.wantHit()) {
-        //        this.dealer.addCard(this.decks.draw());
-        //    }
-        //    else {
-        //        this.dealer.stand();
-        //    }
-        //}
-        //
-        //if (this.dealer.state === ActorPlayingState.Bust) {
-        //    this.state = GamingState.End;
-        //}
-        this.audioMng.playButton();
-    },
+    //     //if (this.dealer.state === ActorPlayingState.Normal) {
+    //     //    if (this.dealer.wantHit()) {
+    //     //        this.dealer.addCard(this.decks.draw());
+    //     //    }
+    //     //    else {
+    //     //        this.dealer.stand();
+    //     //    }
+    //     //}
+    //     //
+    //     //if (this.dealer.state === ActorPlayingState.Bust) {
+    //     //    this.state = GamingState.End;
+    //     //}
+    //     this.audioMng.playButton();
+    // },
     
     createPlayers: function(){
       for(var i = 0;i < 3; ++i){
