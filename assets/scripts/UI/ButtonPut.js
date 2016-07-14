@@ -15,6 +15,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        // this.upStationX=this.
         var self = this;
         var audioMng = cc.find('Menu/AudioMng') || cc.find('Game/AudioMng')
         if (audioMng) {
@@ -28,8 +29,8 @@ cc.Class({
         var game=cc.find('Game');
             game = game.getComponent('Game');
         var num = 0;
-        var spawn = cc.sequence(cc.moveBy(0.5, 0, 30));
-        var spawnDown = cc.sequence(cc.moveBy(0.5, 0, -30));
+        var spawn = cc.sequence(cc.moveBy(0.5, 0, this.upStationX));
+        var spawnDown = cc.sequence(cc.moveBy(0.5, 0, -this.upStationX));
         var actionUp = cc.speed(spawn,5);
         var actionDown = cc.speed(spawnDown, 5);
         

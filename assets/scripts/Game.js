@@ -57,7 +57,7 @@ var Game =  cc.Class({
         // 下注的多少
         // this.player.renderer.showStakeChips(this.player.stakeNum);
         
-        for (var i=0; i<17; ++i){
+        for (var i=0; i<1; ++i){
             this.player.addCard(this.decks.draw());
             this.player1.addHoleCard(this.decks.draw());
             this.player2.addHoleCard2(this.decks.draw());
@@ -107,8 +107,8 @@ var Game =  cc.Class({
         this.player1 = null;
         this.createPlayers();
         
-        this.dealer = this.dealer.getComponent('Dealer');
-        this.dealer.init();
+        // this.dealer = this.dealer.getComponent('Dealer');
+        // this.dealer.init();
         
         // shortcut to ui element
         this.info = this.inGameUI.resultTxt;
@@ -125,30 +125,6 @@ var Game =  cc.Class({
         this.audioMng.playMusic();
     },
     
-    // 玩家要牌
-    // hit: function () {
-    //     this.player.addCard(this.decks.draw());
-    //     // if (this.player.state === ActorPlayingState.Bust) {
-    //     //     // if every player end
-    //     //     this.fsm.onPlayerActed();
-    //     // }
-
-    //     this.audioMng.playCard();
-
-    //     //if (this.dealer.state === ActorPlayingState.Normal) {
-    //     //    if (this.dealer.wantHit()) {
-    //     //        this.dealer.addCard(this.decks.draw());
-    //     //    }
-    //     //    else {
-    //     //        this.dealer.stand();
-    //     //    }
-    //     //}
-    //     //
-    //     //if (this.dealer.state === ActorPlayingState.Bust) {
-    //     //    this.state = GamingState.End;
-    //     //}
-    //     this.audioMng.playButton();
-    // },
     
     createPlayers: function(){
       for(var i = 0;i < 3; ++i){
@@ -204,6 +180,22 @@ var Game =  cc.Class({
     
     notShowText: function(){
       this.info.enabled=false; 
+    },
+    
+    showStart:function(){
+            this.decks.reset();
+           this.player.reset();
+           this.dealer.reset();
+           this.fsm.init(this);
+           this.createPlayers();
+           this.dealer = this.dealer.getComponent('Dealer');
+            this.dealer.init();
+           this.decks = new Decks(this.numberOfDecks);
+        //   this.info.string = '请下注';
+           this.inGameUI.showBetState();
+           this.inGameUI.startCountdown();
+            this.inGameUI.btnStart.active=true;
+           this.audioMng.resumeMusic();
     },
 
     // called every frame, uncomment this function to activate update callback

@@ -211,6 +211,8 @@ cc.Class({
     showCards1: function(){
         for(var i=0;i<this.player1CardsArray.length;i++){
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
+            // var button = cc.instantiate(this.cardPrefab).getComponent('ButtonPut');
+            // button.upStationX=0;
             this.anchorCards.addChild(newCard.node);
             newCard.init(this.player1CardsArray[i]);
             newCard.reveal(false);
@@ -226,7 +228,6 @@ cc.Class({
             var moveAction = cc.moveTo(0.5, endPos);
             var callback = cc.callFunc(this._onDealEnd, this);
             newCard.node.runAction(cc.sequence(moveAction, callback));
-            
         }
     },
     
@@ -349,15 +350,17 @@ cc.Class({
             cc.log('牌的值'+result.val);
             cc.log('牌的长度'+result.size);
             
-            if(result.cardKind === cardKind && result.val> val ){
-                go = true;
-            }else if(cardKind === 13 && result.cardKind === 13 && result.val > val ){
-                go = true;
-            }else if(result.cardKind === 14){
-                go = true;
-            }else if(cardKind < 13 && result.cardKind == 13){
-                go = true;
-            }
+            // if(result.cardKind === cardKind && result.val> val ){
+            //     go = true;
+            // }else if(cardKind === 13 && result.cardKind === 13 && result.val > val ){
+            //     go = true;
+            // }else if(result.cardKind === 14){
+            //     go = true;
+            // }else if(cardKind < 13 && result.cardKind == 13){
+            //     go = true;
+            // }
+            
+            go=true;
             
         }
         
@@ -381,7 +384,7 @@ cc.Class({
                         this.cardsArray.sort(this.compare('point'));
                     }
                 }
-            }   
+            }
         
             this.anchorCards.removeAllChildren();
             this._resetChips();
@@ -389,12 +392,17 @@ cc.Class({
             this.showCards();
             this.willPutCards = this.putCardsArray.slice();
             this.putCardsArray = [];
-            this.game.btnPlay2(result); 
+            this.game.btnPlay2(result);
             }
             else{
                 var game=cc.find('Game');
             game = game.getComponent('Game');
             this.game.showText('出的牌不符合类型');
+            }
+            
+            if(this.cardsArray.length===0){
+                this.game.showText('赢了');
+                this.game.showStart();
             }
         
     },
@@ -445,9 +453,9 @@ cc.Class({
                     newCard2.init(this.willPutCards[j],j);
                     cc.log('asdf');
                     newCard2.reveal(true);
-                    var startPos = cc.p(-150, 0);
+                    var startPos = cc.p(-150-(30 * this.newCardsArray.length-i), 0);
                     var index = this.willPutCards.length;
-                    var endPos = cc.p(-150-(30 * i),0);
+                    var endPos = cc.p(-150,0);
                     newCard2.node.setPosition(startPos);
                     var endPosX = endPos.x;
                     
@@ -598,8 +606,6 @@ cc.Class({
         for (var i = 0; i < cards.length-1; i++) {
             var prev = cards[i].val.string;
             var next = cards[i+1].val.string;
-            // cc.log('prev'+cards[i].val.string);
-            // cc.log('next'+cards[i+1].val.string);
             if(prev === 17 || prev === 16 || prev===15||next===17||next===16||next===15){
                 return false;
             }else{
@@ -746,20 +752,13 @@ cc.Class({
         var index=0;
         for(var i=0;i<cards.length-1;i++){
             if(cards[i].val.string != cards[i+1].val.string){
-                // cc.log('obj, subst'+cards[i].val.string+'i:'+i+1-index);
                 result.push({'val':cards[i].val.string, 'count':i+1-index});
-                // if(i+1===cards.length||i+1<cards.length){
-                //     result.push({'val':cards[i+1].val.string,'count':cards.length-i-1});
-                // }
                 index=i;
             }
         }
           if(index+1===cards.length||index+1<cards.length){
                     result.push({'val':cards[index+1].val.string,'count':cards.length-index-1});
                 }
-        
-        
-        // cc.log('result'+result.length);
         
         return result;
     },

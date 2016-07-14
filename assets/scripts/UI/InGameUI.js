@@ -43,7 +43,7 @@ cc.Class({
     
     
     showBetState: function () {
-        this.betStateUI.active = true;
+        // this.betStateUI.active = true;
         this.gameStateUI.active = false;
         this.btnStart.active = false;
     },
