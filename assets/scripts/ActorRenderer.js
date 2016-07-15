@@ -68,10 +68,6 @@ cc.Class({
     init: function ( playerInfo, playerInfoPos, stakePos, turnDuration, switchSide ) {
         // actor
         this.actor = this.getComponent('Actor');
-        // this.resultText = this.getComponent('resultTxt');
-        // this.resultText.enabled=false;
-        // this.cardType = this.cardType.getComponent('CardType');
-        // nodes
         this.game=cc.find('Game');
         this.game=this.game.getComponent('Game');
         this.isCounting = false;
@@ -83,11 +79,6 @@ cc.Class({
         this.labelPlayerName.string = playerInfo.name;
         this.updateTotalStake(playerInfo.gold);
         var photoIdx = playerInfo.photoIdx % 5;
-        // this.spPlayerPhoto.spriteFrame = Game.instance.assetMng.playerPhotos[photoIdx];
-        // fx
-        // this.animFX = this.animFX.getComponent('FXPlayer');
-        // this.animFX.init();
-        // this.animFX.show(false);
         
         this.cardInfo.active = false;
 
@@ -148,7 +139,6 @@ cc.Class({
 
     onDeal: function (card, show) {
         this.cardsArray.push(card);
-        // cc.log('card.suit:'+card.suit);
         
     },
     
@@ -168,7 +158,6 @@ cc.Class({
     
     upDataInfoPosition: function(){
             var endPos = cc.p(30 * 2, 0);
-            // newCard.node.setPosition(startPos);
             var endPosX = endPos.x;
             this._updatePointPos(endPosX);
     },
@@ -196,18 +185,15 @@ cc.Class({
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
             this.anchorCards.addChild(newCard.node);
             newCard.init(this.cardsArray[i],i);
-            // newCard = this.cardsArray[i];
-            // cc.log('card.tag'+newCard.tag.string+'card.ponit'+newCard.point.string);
             newCard.reveal(true);
             // this.newCardsArray.push(newCard);
             var startPos = cc.p(0, 0);
             var index = this.cardsArray.length;
-            //  this.cardInfo.active=true;
             this.labelCardInfo.string = index;
             var endPos = cc.p(30 * i, 0);
             newCard.node.setPosition(startPos);
             var endPosX = endPos.x;
-            // cc.log('移动距离'+endPosX);
+
             this._updatePointPos(endPosX);
             
             var moveAction = cc.moveTo(0.5, endPos);
@@ -241,7 +227,6 @@ cc.Class({
     },
     
     showCards2: function(){
-        //   cc.log('player2牌的多少'+this.player2CardsArray.length);
         for(var i=0;i<this.player2CardsArray.length;i++){
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
             this.anchorCards.addChild(newCard.node);
@@ -249,7 +234,6 @@ cc.Class({
             newCard.reveal(false);
             var startPos = cc.p(0,0);
             var index = this.player2CardsArray.length;
-            // cc.log('player2牌的多少'+index);
             
             this.labelCardInfo.string = index;
             var endPos = cc.p(0*i,0);
@@ -296,7 +280,6 @@ cc.Class({
             this.startCountdown();
         }
         this.updatePoint();
-        // this._updatePointPos(pointX);
     },
 
     onReset: function () {
@@ -326,8 +309,6 @@ cc.Class({
 
     updatePoint: function () {
         this.cardInfo.active = true;
-        // this.labelCardInfo.string = this.actor.cards.length;
-
         switch (this.actor.hand) {
             case Types.Hand.BlackJack:
                 this.animFX.show(true);
@@ -413,16 +394,12 @@ cc.Class({
             this.newcardsArray = this.cardsArray.slice();
             for(var i=0;i<this.putCardsArray.length;i++){
                 var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
-                // this.newCardsArray.push(card);
                 newCard = this.putCardsArray[i];
-                // cc.log('牌的point'+newCard.point.string+'tag'+newCard.tag.string);
                 for(var j=0;j<this.cardsArray.length;j++){
                     var card = cc.instantiate(this.cardPrefab).getComponent('Card');
                     card.init(this.cardsArray[j],j);
                     if(newCard.point.string === card.point.string && newCard.suitNum.string===card.suitNum.string){
                         this.player0ShowPutCard();
-                        // cc.log('删除掉的另一张牌tag:'+newCard.tag.string+'point'+newCard.point.string);
-                        // cc.log('删除一张牌tag:'+card.tag.string+'point:'+card.point.string);
                         this.cardsArray.splice(j,1);
                         this.cardsArray.sort(this.compare('point'));
                     }
@@ -486,10 +463,7 @@ cc.Class({
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
             this.anchorCards.addChild(newCard.node);
             newCard.init(this.cardsArray[i],i);
-            // newCard = this.cardsArray[i];
-            // cc.log('card.tag'+newCard.tag.string+'card.ponit'+newCard.point.string);
             newCard.reveal(true);
-            // this.newCardsArray.push(newCard);
             var startPos = cc.p(0, 0);
             var index = this.cardsArray.length;
             //  this.cardInfo.active=true;
@@ -497,12 +471,8 @@ cc.Class({
             var endPos = cc.p(30 * i, 0);
             newCard.node.setPosition(endPos);
             var endPosX = endPos.x;
-            // cc.log('移动距离'+endPosX);
             this._updatePointPos(endPosX);
             
-            // var moveAction = cc.moveTo(0.5, endPos);
-            // var callback = cc.callFunc(this._onDealEnd, this);
-            // newCard.node.runAction(cc.sequence(moveAction, callback));
         }
     },
     
@@ -558,9 +528,6 @@ cc.Class({
                     newCard2.node.setPosition(endPos);
                     var endPosX = endPos.x;
                     this._updatePointPos(endPosX);
-                    // var moveAction = cc.moveTo(0.5, endPos);
-                    // var callback = cc.callFunc(this._onDealEnd, this);
-                    // newCard2.node.runAction(cc.sequence(moveAction, callback));
                 }
             }
         }
@@ -795,7 +762,6 @@ cc.Class({
             }
         }
         return false;
-    // return cards.length === 2 && ((cards[0].val.string === 16 && cards[1].val.string === 17)||(cards[0].val.string === 17 && cards[1].val.string === 16)));
     },
     
     /**
@@ -845,30 +811,10 @@ cc.Class({
     var max = 0;
 
     for (var i = 0; i < c.length; i++) {
-        // cc.log('c[i].count'+c[i].count);
         if(c[i].count === n && c[i].val > max){
             max = c[i].val;
         }
     }
     return max;
-    },
-    
-    /**
- * 卡牌排序
- * @method cardSort
- * @param  {Object} a [description]
- * @param  {Object} b [description]
- * @return 1 : a < b ,-1 a : > b   [description]
- */
-    cardSort : function (a, b){
-    var va = parseInt(a.val);
-    var vb = parseInt(b.val);
-    if(va === vb){
-        return a.type > b.type ? 1 : -1;
-    } else if(va > vb){
-        return -1;
-    } else {
-        return 1;
-    }
     },
 });
