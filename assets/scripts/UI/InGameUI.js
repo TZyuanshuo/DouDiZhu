@@ -12,6 +12,7 @@ cc.Class({
         resultTxt:cc.Label,
         // betCounter:cc.ProgressBar,
         btnStart:cc.Node,
+        jdzStateUI:cc.Node,
     },
 
     // use this for initialization
@@ -41,7 +42,17 @@ cc.Class({
         // }
     },
     
+    showJDZState: function () {
+        // this.betStateUI.active = false;
+        this.jdzStateUI.active = true;
+        this.btnStart.active = false;
+    },
     
+    showDZState: function () {
+        // this.betStateUI.active = false;
+        this.dzStateUI.active = true;
+        this.btnStart.active = false;
+    },
     showBetState: function () {
         // this.betStateUI.active = true;
         this.gameStateUI.active = false;

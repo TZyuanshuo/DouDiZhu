@@ -41,6 +41,10 @@ cc.Class({
           default: [],
           type:cc.SpriteFrame
         },
+        player3CardsArray:{
+          default:[],
+          type:cc.SpriteFrame
+        },
         putCardsArray:{
           default:[],
           serializable: false,
@@ -158,6 +162,10 @@ cc.Class({
         this.player2CardsArray.sort(this.compare('point'));
     },
     
+    onDeal3: function(card,show){
+        this.player3CardsArray.push(card);
+    },
+    
     upDataInfoPosition: function(){
             var endPos = cc.p(30 * 2, 0);
             // newCard.node.setPosition(startPos);
@@ -255,9 +263,28 @@ cc.Class({
         }
     },
     
-    willPutCard: function(){
-        
+    showCards3: function () {
+        for (var i = 0; i < this.player3CardsArray.length; i++) {
+            var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
+            this.anchorCards.addChild(newCard.node);
+            newCard.init(this.player3CardsArray[i]);
+            newCard.reveal(false);
+            var startPos = cc.p(0, 0);
+            var index = this.actor.holeCard.length;
+            cc.log('3张底牌' + index);
+            this.labelCardInfo.string = index;
+            var endPos = cc.p(100 * i, 0);
+            newCard.node.setPosition(startPos);
+            var endPosX = endPos.x;
+            this._updatePointPos(endPosX);
+
+            var moveAction = cc.moveTo(0.5, endPos);
+           // var callback = cc.callFunc(this._onDealEnd, this);
+            newCard.node.runAction(moveAction);
+
+        }
     },
+    
     
     _onDealEnd: function(target) {
         this.resetCountdown();
@@ -277,9 +304,17 @@ cc.Class({
     },
 
     onRevealHoldCard: function () {
-        var card = cc.find('cardPrefab', this.anchorCards).getComponent('Card');
-        card.reveal(true);
-        this.updateState();
+       for (var i = 0; i < this.player3CardsArray.length; i++) {
+            var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
+            this.anchorCards.addChild(newCard.node);
+            newCard.init(this.player3CardsArray[i]);
+            newCard.reveal(true);
+            var startPos = cc.p(0, 0);
+            var endPos = cc.p(100 * i, 0);
+            newCard.node.setPosition(endPos);
+            var endPosX = endPos.x;
+            this._updatePointPos(endPosX);
+        } 
     },
 
     updatePoint: function () {
