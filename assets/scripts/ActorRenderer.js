@@ -145,7 +145,7 @@ cc.Class({
     onDeal: function (card, show) {
         this.cardsArray.push(card);
         // cc.log('card.suit:'+card.suit);
-        this.cardsArray.sort(this.compare('point'));
+        
     },
     
     onDeal1: function(card,show){
@@ -183,6 +183,7 @@ cc.Class({
     
     showCards: function(){
         this.labelCardInfo.string = 0;
+        this.cardsArray.sort(this.compare('point'));
         for(var i=0;i<this.cardsArray.length;i++){
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
             this.anchorCards.addChild(newCard.node);
@@ -389,7 +390,7 @@ cc.Class({
             this.anchorCards.removeAllChildren();
             this._resetChips();
             this.player0ShowPutCard();
-            this.showCards();
+            this.showCard();
             this.willPutCards = this.putCardsArray.slice();
             this.putCardsArray = [];
             this.game.btnPlay2(result);
@@ -434,6 +435,33 @@ cc.Class({
         //  this.player2ShowPutCard();
         //  this.showCards2();
         // this.newCardsArray = [];
+    },
+    
+    showCard: function(){
+        this.labelCardInfo.string = 0;
+        this.cardsArray.sort(this.compare('point'));
+        for(var i=0;i<this.cardsArray.length;i++){
+            var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
+            this.anchorCards.addChild(newCard.node);
+            newCard.init(this.cardsArray[i],i);
+            // newCard = this.cardsArray[i];
+            // cc.log('card.tag'+newCard.tag.string+'card.ponit'+newCard.point.string);
+            newCard.reveal(true);
+            // this.newCardsArray.push(newCard);
+            var startPos = cc.p(0, 0);
+            var index = this.cardsArray.length;
+            //  this.cardInfo.active=true;
+            this.labelCardInfo.string = index;
+            var endPos = cc.p(30 * i, 0);
+            newCard.node.setPosition(endPos);
+            var endPosX = endPos.x;
+            // cc.log('移动距离'+endPosX);
+            this._updatePointPos(endPosX);
+            
+            // var moveAction = cc.moveTo(0.5, endPos);
+            // var callback = cc.callFunc(this._onDealEnd, this);
+            // newCard.node.runAction(cc.sequence(moveAction, callback));
+        }
     },
     
     player2ShowPutCard: function(){
@@ -485,12 +513,12 @@ cc.Class({
                     var startPos = cc.p(100, 150);
                     var index = this.newcardsArray.length;
                     var endPos = cc.p(100+(30 *i),150);
-                    newCard2.node.setPosition(startPos);
+                    newCard2.node.setPosition(endPos);
                     var endPosX = endPos.x;
                     this._updatePointPos(endPosX);
-                    var moveAction = cc.moveTo(0.5, endPos);
-                    var callback = cc.callFunc(this._onDealEnd, this);
-                    newCard2.node.runAction(cc.sequence(moveAction, callback));
+                    // var moveAction = cc.moveTo(0.5, endPos);
+                    // var callback = cc.callFunc(this._onDealEnd, this);
+                    // newCard2.node.runAction(cc.sequence(moveAction, callback));
                 }
             }
         }
