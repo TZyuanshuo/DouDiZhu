@@ -22,7 +22,7 @@ exports = {
 
         // 当前这一把的状态
 
-        var bet = new State.State("下注", model);
+        var bet = new State.State("开牌", model);
         playing = new State.State("已开局", model);
         var settled = new State.State("结算", model);
 

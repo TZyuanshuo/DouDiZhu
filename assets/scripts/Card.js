@@ -52,6 +52,7 @@ cc.Class({
         if(isJoker){
            this.suit.spriteFrame = null;
            this.point.string = null;
+           this.mainPic.spriteFrame = this.texFaces[card.point - 10 - 1];
        }
         else{
             this.suit.spriteFrame = this.texSuitSmall[card.suit - 1];
