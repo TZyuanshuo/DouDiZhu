@@ -285,6 +285,10 @@ cc.Class({
         }
     },
     
+    addThreeCards:function(cards){
+        this.cardsArray =  this.cardsArray.concat(cards);
+        this.showCard();
+    },
     
     _onDealEnd: function(target) {
         this.resetCountdown();
@@ -315,6 +319,9 @@ cc.Class({
             var endPosX = endPos.x;
             this._updatePointPos(endPosX);
         } 
+        
+        this.game.addThreeCards(this.player3CardsArray);
+        
     },
 
     updatePoint: function () {

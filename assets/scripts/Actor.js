@@ -165,6 +165,10 @@ cc.Class({
         this.renderer.release(card);
     },
     
+    addThreeCards: function(cards){
+        this.renderer.addThreeCards(cards);
+    },
+    
     reset: function () {
         this.cards = [];
         this.holeCard = null;

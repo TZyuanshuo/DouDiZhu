@@ -55,7 +55,6 @@ var Game =  cc.Class({
       this.onPlayersCardsGet(true);
       this.onPlayersTurnState(true);
      // this.player.addThreeCard(this.);
-      this.player.showCard();
     //   this.player.showCard();
     },
     
@@ -221,6 +220,10 @@ var Game =  cc.Class({
     
     notShowText: function(){
       this.info.enabled=false; 
+    },
+    
+    addThreeCards: function(cards){
+      this.player.addThreeCards(cards);  
     },
     
     showStart:function(){
