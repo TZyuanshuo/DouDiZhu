@@ -2493,8 +2493,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
-      "height": 96
+      "width": 150,
+      "height": 70
     },
     "_children": [
       {
@@ -2558,8 +2558,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 40
+      "width": 50,
+      "height": 25
     },
     "_children": [],
     "_rotationX": 0,
@@ -2599,8 +2599,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -2628,8 +2628,8 @@
     "_spriteFrame": {
       "__uuid__": "f06bc874-4dd7-4a2e-a31c-916149382264"
     },
-    "_type": 0,
-    "_sizeMode": 1,
+    "_type": 3,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -2637,7 +2637,7 @@
       "y": 0
     },
     "_fillStart": 0,
-    "_fillRange": 0,
+    "_fillRange": 1,
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
@@ -2747,8 +2747,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
-      "height": 95
+      "width": 150,
+      "height": 70
     },
     "_children": [
       {
@@ -2812,8 +2812,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
-      "height": 40
+      "width": 50,
+      "height": 25
     },
     "_children": [],
     "_rotationX": 0,
@@ -2853,8 +2853,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -2882,8 +2882,8 @@
     "_spriteFrame": {
       "__uuid__": "4614a488-07a4-4313-aa71-9ae34232110d"
     },
-    "_type": 0,
-    "_sizeMode": 1,
+    "_type": 3,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -2891,7 +2891,7 @@
       "y": 0
     },
     "_fillStart": 0,
-    "_fillRange": 0,
+    "_fillRange": 1,
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
@@ -4842,8 +4842,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
-      "height": 96
+      "width": 150,
+      "height": 70
     },
     "_children": [
       {
@@ -4907,8 +4907,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 40
+      "width": 50,
+      "height": 25
     },
     "_children": [],
     "_rotationX": 0,
@@ -4948,8 +4948,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -4979,8 +4979,8 @@
     "_spriteFrame": {
       "__uuid__": "f06bc874-4dd7-4a2e-a31c-916149382264"
     },
-    "_type": 0,
-    "_sizeMode": 1,
+    "_type": 3,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -4988,7 +4988,7 @@
       "y": 0
     },
     "_fillStart": 0,
-    "_fillRange": 0,
+    "_fillRange": 1,
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
@@ -5098,8 +5098,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
-      "height": 95
+      "width": 150,
+      "height": 70
     },
     "_children": [
       {
@@ -5163,8 +5163,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
-      "height": 40
+      "width": 50,
+      "height": 25
     },
     "_children": [],
     "_rotationX": 0,
@@ -5204,8 +5204,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -5235,8 +5235,8 @@
     "_spriteFrame": {
       "__uuid__": "4614a488-07a4-4313-aa71-9ae34232110d"
     },
-    "_type": 0,
-    "_sizeMode": 1,
+    "_type": 3,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -5244,7 +5244,7 @@
       "y": 0
     },
     "_fillStart": 0,
-    "_fillRange": 0,
+    "_fillRange": 1,
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,

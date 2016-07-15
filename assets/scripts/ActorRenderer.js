@@ -255,7 +255,7 @@ cc.Class({
             newCard.reveal(false);
             var startPos = cc.p(0, 0);
             var index = this.actor.holeCard.length;
-            cc.log('3张底牌' + index);
+            // cc.log('3张底牌' + index);
             this.labelCardInfo.string = index;
             var endPos = cc.p(100 * i, 0);
             newCard.node.setPosition(startPos);
@@ -291,6 +291,8 @@ cc.Class({
     },
 
     onRevealHoldCard: function () {
+        this.anchorCards.removeAllChildren();
+        this._resetChips();
        for (var i = 0; i < this.player3CardsArray.length; i++) {
             var newCard = cc.instantiate(this.cardPrefab).getComponent('Card');
             this.anchorCards.addChild(newCard.node);
@@ -304,7 +306,6 @@ cc.Class({
         } 
         
         this.game.addThreeCards(this.player3CardsArray);
-        
     },
 
     updatePoint: function () {
@@ -351,7 +352,7 @@ cc.Class({
     
     addPutCard: function(card){
         this.putCardsArray.push(card);
-        cc.log('添加的打出的牌'+'point:'+card.point.string+'    tag:'+card.tag.string+'value'+card.val.string);
+        // cc.log('添加的打出的牌'+'point:'+card.point.string+'    tag:'+card.tag.string+'value'+card.val.string);
         this.putCardsArray.sort(this.compare('val'));
     },
     
