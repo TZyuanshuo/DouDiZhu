@@ -1,0 +1,13 @@
+{
+  "excludeScenes": [],
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.DouDiZhu",
+  "startScene": "709f3712-56bd-46ce-ace7-a1e622f6c51d",
+  "title": "DouDiZhu",
+  "webOrientation": "auto"
+}
