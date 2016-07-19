@@ -21,7 +21,7 @@ var Game =  cc.Class({
         audioMng:cc.Node,
         turnDuration:0,
         betDuration:0,
-        totalChipsNum:0,
+        totalChipsNum:5000,
         totalDiamondNum:0,
         numberOfDecks:{
             default:1,
@@ -54,8 +54,6 @@ var Game =  cc.Class({
       this.inGameUI.jdzStateUI.active = false;
       this.onPlayersCardsGet(true);
       this.onPlayersTurnState(true);
-     // this.player.addThreeCard(this.);
-    //   this.player.showCard();
     },
     
      //  叫地主
@@ -130,7 +128,6 @@ var Game =  cc.Class({
         this.assetMng = this.assetMng.getComponent('AssetMng');
         this.audioMng = this.audioMng.getComponent('AudioMng');
         this.inGameUI.init(this.betDuration);
-        
         this.dealer = this.dealer.getComponent('Dealer');
         this.dealer.init();
     
@@ -145,19 +142,126 @@ var Game =  cc.Class({
         
         // shortcut to ui element
         this.info = this.inGameUI.resultTxt;
-        this.totalChips = this.inGameUI.labelTotalChips;
+        // this.totalChips = this.inGameUI.labelTotalChips;
 
         // init logic
         this.decks = new Decks(this.numberOfDecks);
         this.fsm = Fsm;
         this.fsm.init(this);
+        
+        //网络请求
+       
+        
+        cc.log('valueof:'+this.getUUID());
+        
+        this.getRequest();
 
         // start
-        // this.updateTotalChips();
+        this.updateTotalChips();
 
         this.audioMng.playMusic();
     },
     
+    // 获取UUID 
+    getUUID: function(){
+        var uuid;
+        uuid=this.createUUID();
+        return uuid;
+    },
+    
+    createUUID: function(){
+         var c = new Date(1582, 10, 15, 0, 0, 0, 0);
+    var f = new Date();
+    var h = f.getTime() - c.getTime();
+    var i = this.getIntegerBits(h, 0, 31);
+    var g = this.getIntegerBits(h, 32, 47);
+    var e = this.getIntegerBits(h, 48, 59) + "2";
+    var b = this.getIntegerBits(this.rand(4095), 0, 7);
+    var d = this.getIntegerBits(this.rand(4095), 0, 7);
+    var a = this.getIntegerBits(this.rand(8191), 0, 7)+
+            this.getIntegerBits(this.rand(8191), 8, 15)+
+            this.getIntegerBits(this.rand(8191), 0, 7)+
+            this.getIntegerBits(this.rand(8191), 8, 15)+
+            this.getIntegerBits(this.rand(8191), 0, 15);
+    return i + g + e + b + d + a;
+    },
+    
+    getIntegerBits: function(f,g,b){
+        var a = this.returnBase(f, 16);
+        var d = new Array();
+        var e = "";
+        var c = 0;
+        for (c = 0; c < a.length; c++) {
+            d.push(a.substring(c, c + 1))
+        }
+        for (c = Math.floor(g / 4); c <= Math.floor(b / 4); c++) {
+            if (!d[c] || d[c] === "") {
+                e += "0"
+            } else {
+                e += d[c]
+            }
+        }
+        return e
+    },
+    
+    returnBase: function(c,d){
+        var e = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
+        "C",
+        "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+        "Q",
+        "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+        ];
+        if (c < d) {
+            var b = e[c];
+        } else {
+            var f = "" + Math.floor(c / d);
+            var a = c - f * d;
+            if (f >= d) {
+                 b = this.returnBase(f, d) + e[a];
+            } else {
+                 b = e[f] + e[a];
+            }
+        }
+        return b
+    },
+    rand: function(a){
+        return Math.floor(Math.random() * a);
+    },
+    
+    // get请求
+    getRequest: function(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+          if (xhr.readyState == 4 && (xhr.status >=200 && xhr.status <400)){
+              var response = xhr.responseText;
+              cc.log('response'+response);
+          }
+        };
+        xhr.open("GET","http://www.baidu.com",true);
+        xhr.send();
+    },
+    
+    post: function(url, params) {
+        var temp = document.createElement("form");
+        temp.action = url;
+        temp.method = "post";
+        temp.style.display = "none";
+        for (var x in params) {
+            var opt = document.createElement("input");
+            opt.name = x;
+            opt.value = params[x];
+            temp.appendChild(opt);
+        }
+        document.body.appendChild(temp);
+        temp.submit();
+        return temp;
+    }, 
+     
+    
+    updateTotalChips: function() {
+        // this.totalChips.string = this.totalChipsNum;
+        this.player.renderer.updateTotalStake(this.totalChipsNum);
+    },
     
     createPlayers: function(){
       for(var i = 0;i < 4; ++i){

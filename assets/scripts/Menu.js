@@ -21,6 +21,6 @@ cc.Class({
 
     // called every frame
     update: function (dt) {
-
+        
     },
 });

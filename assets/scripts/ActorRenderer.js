@@ -65,7 +65,7 @@ cc.Class({
     onLoad: function () {
     },
 
-    init: function ( playerInfo, playerInfoPos, stakePos, turnDuration, switchSide ) {
+    init: function ( playerInfo, playerInfoPos, stakePos, turnDuration, switchSide) {
         // actor
         this.actor = this.getComponent('Actor');
         this.game=cc.find('Game');
@@ -79,6 +79,7 @@ cc.Class({
         this.labelPlayerName.string = playerInfo.name;
         this.updateTotalStake(playerInfo.gold);
         var photoIdx = playerInfo.photoIdx % 5;
+        
         
         this.cardInfo.active = false;
 

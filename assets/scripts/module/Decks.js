@@ -24,7 +24,7 @@ Decks.prototype.reset = function () {
     var index = 0;
     var fromId = Types.Card.fromId;
     for (var i = 0; i < this._numberOfDecks; ++i) {
-        for (var cardId = 0; cardId < 54; ++cardId) {
+        for (var cardId = 0; cardId < 54; ++cardId){
             this._cardIds[index] = fromId(cardId);
             ++index;
         }

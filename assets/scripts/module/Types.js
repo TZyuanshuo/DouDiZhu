@@ -9,13 +9,14 @@ var A2_10JQK = 'NAN,3,4,5,6,7,8,9,10,J,Q,K,A,2,KK,KKK'.split(',');
 
 /**
  * 扑克牌类，只用来表示牌的基本属性，不包含游戏逻辑，所有属性只读，
- * 因此全局只需要有 52 个实例（去掉大小王），不论有多少副牌
+ * 因此全局只需要有 54 个实例，不论有多少副牌
  * @class Card
  * @constructor
  * @param {Number} point - 可能的值为 1 到 13
  * @param {Suit} suit
  */
 function Card (point, suit) {
+    //将一个或多个属性添加到对象，并/或修改现有属性的特性
     Object.defineProperties(this, {
         point: {
             value: point,
@@ -25,10 +26,6 @@ function Card (point, suit) {
             value: suit,
             writable: false
         },
-        // tag:{
-        //   value:tag,
-        //   writable: false
-        // },
         /**
          * @property {Number} id - 可能的值为 0 到 51
          */
@@ -47,11 +44,6 @@ function Card (point, suit) {
                 return Suit[this.suit];
             }
         },
-        // tagName:{
-        //   get: function(){
-        //       return this.tag;
-        //   }  
-        // },
         isBlackSuit: {
             get: function () {
                 return this.suit === Suit.Spade || this.suit === Suit.Club;
@@ -74,7 +66,7 @@ var cards = new Array(54);
 
 /**
  * 返回指定 id 的实例
- * @param {Number} id - 0 到 51
+ * @param {Number} id - 0 到 53
  */
 Card.fromId = function (id) {
     return cards[id];
@@ -84,10 +76,8 @@ Card.fromId = function (id) {
 (function createCards () {
     for (var s = 1; s <= 4; s++) {
         for (var p = 1; p <= 13; p++) {
-            // for(var t=0;t<19;t++){
                 var card = new Card(p, s);
                 cards[card.id] = card;
-            // }
         }
     }
      card = new Card(14, 4);
