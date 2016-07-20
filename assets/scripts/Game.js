@@ -154,7 +154,7 @@ var Game =  cc.Class({
         
         // cc.log('valueof:'+this.getUUID());
         
-        this.getRequest();
+        // this.getRequest();
 
         // start
         this.updateTotalChips();
