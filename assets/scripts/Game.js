@@ -152,7 +152,7 @@ var Game =  cc.Class({
         //网络请求
        
         
-        cc.log('valueof:'+this.getUUID());
+        // cc.log('valueof:'+this.getUUID());
         
         this.getRequest();
 
@@ -162,100 +162,100 @@ var Game =  cc.Class({
         this.audioMng.playMusic();
     },
     
-    // 获取UUID 
-    getUUID: function(){
-        var uuid;
-        uuid=this.createUUID();
-        return uuid;
-    },
+    // // 获取UUID 
+    // getUUID: function(){
+    //     var uuid;
+    //     uuid=this.createUUID();
+    //     return uuid;
+    // },
     
-    createUUID: function(){
-         var c = new Date(1582, 10, 15, 0, 0, 0, 0);
-    var f = new Date();
-    var h = f.getTime() - c.getTime();
-    var i = this.getIntegerBits(h, 0, 31);
-    var g = this.getIntegerBits(h, 32, 47);
-    var e = this.getIntegerBits(h, 48, 59) + "2";
-    var b = this.getIntegerBits(this.rand(4095), 0, 7);
-    var d = this.getIntegerBits(this.rand(4095), 0, 7);
-    var a = this.getIntegerBits(this.rand(8191), 0, 7)+
-            this.getIntegerBits(this.rand(8191), 8, 15)+
-            this.getIntegerBits(this.rand(8191), 0, 7)+
-            this.getIntegerBits(this.rand(8191), 8, 15)+
-            this.getIntegerBits(this.rand(8191), 0, 15);
-    return i + g + e + b + d + a;
-    },
+    // createUUID: function(){
+    //      var c = new Date(1582, 10, 15, 0, 0, 0, 0);
+    // var f = new Date();
+    // var h = f.getTime() - c.getTime();
+    // var i = this.getIntegerBits(h, 0, 31);
+    // var g = this.getIntegerBits(h, 32, 47);
+    // var e = this.getIntegerBits(h, 48, 59) + "2";
+    // var b = this.getIntegerBits(this.rand(4095), 0, 7);
+    // var d = this.getIntegerBits(this.rand(4095), 0, 7);
+    // var a = this.getIntegerBits(this.rand(8191), 0, 7)+
+    //         this.getIntegerBits(this.rand(8191), 8, 15)+
+    //         this.getIntegerBits(this.rand(8191), 0, 7)+
+    //         this.getIntegerBits(this.rand(8191), 8, 15)+
+    //         this.getIntegerBits(this.rand(8191), 0, 15);
+    // return i + g + e + b + d + a;
+    // },
     
-    getIntegerBits: function(f,g,b){
-        var a = this.returnBase(f, 16);
-        var d = new Array();
-        var e = "";
-        var c = 0;
-        for (c = 0; c < a.length; c++) {
-            d.push(a.substring(c, c + 1))
-        }
-        for (c = Math.floor(g / 4); c <= Math.floor(b / 4); c++) {
-            if (!d[c] || d[c] === "") {
-                e += "0"
-            } else {
-                e += d[c]
-            }
-        }
-        return e
-    },
+    // getIntegerBits: function(f,g,b){
+    //     var a = this.returnBase(f, 16);
+    //     var d = new Array();
+    //     var e = "";
+    //     var c = 0;
+    //     for (c = 0; c < a.length; c++) {
+    //         d.push(a.substring(c, c + 1))
+    //     }
+    //     for (c = Math.floor(g / 4); c <= Math.floor(b / 4); c++) {
+    //         if (!d[c] || d[c] === "") {
+    //             e += "0"
+    //         } else {
+    //             e += d[c]
+    //         }
+    //     }
+    //     return e
+    // },
     
-    returnBase: function(c,d){
-        var e = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
-        "C",
-        "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
-        "Q",
-        "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
-        ];
-        if (c < d) {
-            var b = e[c];
-        } else {
-            var f = "" + Math.floor(c / d);
-            var a = c - f * d;
-            if (f >= d) {
-                 b = this.returnBase(f, d) + e[a];
-            } else {
-                 b = e[f] + e[a];
-            }
-        }
-        return b
-    },
-    rand: function(a){
-        return Math.floor(Math.random() * a);
-    },
+    // returnBase: function(c,d){
+    //     var e = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
+    //     "C",
+    //     "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+    //     "Q",
+    //     "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+    //     ];
+    //     if (c < d) {
+    //         var b = e[c];
+    //     } else {
+    //         var f = "" + Math.floor(c / d);
+    //         var a = c - f * d;
+    //         if (f >= d) {
+    //              b = this.returnBase(f, d) + e[a];
+    //         } else {
+    //              b = e[f] + e[a];
+    //         }
+    //     }
+    //     return b
+    // },
+    // rand: function(a){
+    //     return Math.floor(Math.random() * a);
+    // },
     
-    // get请求
-    getRequest: function(){
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(){
-          if (xhr.readyState == 4 && (xhr.status >=200 && xhr.status <400)){
-              var response = xhr.responseText;
-              cc.log('response'+response);
-          }
-        };
-        xhr.open("GET","http://www.baidu.com",true);
-        xhr.send();
-    },
+    // // get请求
+    // getRequest: function(){
+    //     var xhr = new XMLHttpRequest();
+    //     xhr.onreadystatechange = function(){
+    //       if (xhr.readyState == 4 && (xhr.status >=200 && xhr.status <400)){
+    //           var response = xhr.responseText;
+    //           cc.log('response'+response);
+    //       }
+    //     };
+    //     xhr.open("GET","http://www.baidu.com",true);
+    //     xhr.send();
+    // },
     
-    post: function(url, params) {
-        var temp = document.createElement("form");
-        temp.action = url;
-        temp.method = "post";
-        temp.style.display = "none";
-        for (var x in params) {
-            var opt = document.createElement("input");
-            opt.name = x;
-            opt.value = params[x];
-            temp.appendChild(opt);
-        }
-        document.body.appendChild(temp);
-        temp.submit();
-        return temp;
-    }, 
+    // post: function(url, params) {
+    //     var temp = document.createElement("form");
+    //     temp.action = url;
+    //     temp.method = "post";
+    //     temp.style.display = "none";
+    //     for (var x in params) {
+    //         var opt = document.createElement("input");
+    //         opt.name = x;
+    //         opt.value = params[x];
+    //         temp.appendChild(opt);
+    //     }
+    //     document.body.appendChild(temp);
+    //     temp.submit();
+    //     return temp;
+    // }, 
      
     
     updateTotalChips: function() {
